@@ -43,7 +43,7 @@ function DivMaster() {
                             <input type="number" className='inputVerde'/>
 
                             <span>Produção Teórica</span>
-                            <input type="number" className='inputVerdeEscuro'/>
+                            <input type="number" className='inputVerdeEscuro' disabled/>
                         </div>
                     </div>
 
