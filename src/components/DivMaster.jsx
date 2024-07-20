@@ -43,6 +43,7 @@ function DivMaster() {
         }else{return (HtrabalhadaFloat / (dia - ParadaPlanFloat)) * 100}
     }
     const Disponibilidade = fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia);
+
     //__________________________________________________________________________________________________________
     function fun_Qualidade(prodRealFloat, pesoFloat, rejeitoFloat) { //Função de Calculo de Qualidade
         if (prodRealFloat == 0 || pesoFloat == 0||rejeitoFloat == 0) {
@@ -98,22 +99,22 @@ function DivMaster() {
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Horas Planejadas</span>
-                            <input type="text" class=" form-control bg-dark text-white " disabled value={dia} />
+                            <input type="number" class=" form-control bg-dark text-white " disabled value={dia} />
                         </div>
                         <div class="col-12">
                             <span>Horas Trabalhadas</span>
-                            <input type="text" class=" form-control bg-primary text-white" value={Htrabalhada}
+                            <input type="number" class=" form-control bg-primary text-white" value={Htrabalhada}
                                 onChange={event => { setHtrabalhada(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Tempo Parada não Planejada</span>
-                            <input type="text" class=" form-control bg-dark text-white" disabled value={ParadaNplan} />
+                            <input type="number" class=" form-control bg-dark text-white" disabled value={ParadaNplan} />
                         </div>
                         <div class="col-12">
                             <span>Tempo Parada Planejada</span>
-                            <input type="text" class="inputAzul form-control bg-primary text-white" value={ParadaPlan}
+                            <input type="number" class="inputAzul form-control bg-primary text-white" value={ParadaPlan}
                                 onChange={event => { setParadaPlan(event.target.value); }} />
                         </div>
                     </div>
@@ -166,7 +167,7 @@ function DivMaster() {
                     <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center DivBotoes">
                         <div class="row w-100">
                             <div class="col-12 text-center">
-                                <button type="button" class="btn btn-dark btn-custom" onClick={Calcular}>Calcular</button>
+                                {/* <button type="button" class="btn btn-dark btn-custom" onClick={Calcular}>Calcular</button> */}
                                 <button type="button" class="btn btn-dark btn-custom" onClick={Limpar}>Limpar</button>
                             </div>
                         </div>
