@@ -4,13 +4,13 @@ import { useState } from 'react'
 
 
 function DivMaster() {
-    const [Htrabalhada, setHtrabalhada] = useState('')//Conectando input com variavel.
-    const [ParadaPlan, setParadaPlan] = useState('')
-    const [cavidades, setCavidades] = useState('')
-    const [ciclo, setCiclo] = useState('')
-    const [prodReal, setprodReal] = useState('')
-    const [peso, setPeso] = useState('')
-    const [rejeito, setRejeito] = useState('')
+    const [Htrabalhada, setHtrabalhada] = useState(0)//Conectando input com variavel.
+    const [ParadaPlan, setParadaPlan] = useState(0)
+    const [cavidades, setCavidades] = useState(0)
+    const [ciclo, setCiclo] = useState(0)
+    const [prodReal, setprodReal] = useState(0)
+    const [peso, setPeso] = useState(0)
+    const [rejeito, setRejeito] = useState(0)
 
     //Variaveis
     let dia = 24
@@ -29,18 +29,27 @@ function DivMaster() {
 
     //__________________________________________________________________________________________________________
     function fun_Performance(prodRealFloat, producaoTeorica) {//Função de Calculo de Performance
-        return (prodRealFloat / producaoTeorica) * 100
+        if (prodRealFloat == 0) {
+            return 0
+        }else{return (prodRealFloat / producaoTeorica) * 100}
     }
     const Performance = fun_Performance(prodRealFloat, producaoTeorica)
 
     //__________________________________________________________________________________________________________
     function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia) {//Função de Calculo de Disponibilidade
-        return (HtrabalhadaFloat / (dia - ParadaPlanFloat)) * 100;
+        if (HtrabalhadaFloat == 0|| ParadaPlanFloat == 0) {
+            return 0
+        }else{return (HtrabalhadaFloat / (dia - ParadaPlanFloat)) * 100}
     }
     const Disponibilidade = fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia);
     //__________________________________________________________________________________________________________
     function fun_Qualidade(prodRealFloat, pesoFloat, rejeitoFloat) { //Função de Calculo de Qualidade
-        return (prodRealFloat / (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))) * 100
+        if (prodRealFloat == 0 || pesoFloat == 0||rejeitoFloat == 0) {
+            return 0
+        }else{
+            return (prodRealFloat / (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))) * 100
+        }
+        
     }
     const Qualidade = fun_Qualidade(prodRealFloat, pesoFloat, rejeitoFloat)
     //__________________________________________________________________________________________________________
@@ -49,16 +58,16 @@ function DivMaster() {
         return (Performance / 100 * Qualidade / 100 * Disponibilidade / 100) * 100
     }
     const OEE = fun_OEE(Performance, Qualidade, Disponibilidade)
+    
 
-
-    function Limpar() {
-        setCavidades('')
-        setCiclo('')
-        setHtrabalhada('')
-        setParadaPlan('')
-        setPeso('')
-        setRejeito('')
-        setprodReal('')
+    function Limpar(OEE,Qualidade,Performance,Disponibilidade) {
+        setCavidades(0)
+        setCiclo(0)
+        setHtrabalhada(0)
+        setParadaPlan(0)
+        setPeso(0)
+        setRejeito(0)
+        setprodReal(0)
 
     }
 
@@ -82,30 +91,28 @@ function DivMaster() {
 
     return (
         
-        <div class="container">
+        <div class="container  ">
             <div class="row">
                 <div class="col-12 col-md-4 d-flex flex-column align-items-start Div1">
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Horas Planejadas</span>
-                            <input type="number" class="inputVerdeEscuro form-control" disabled value={dia} />
+                            <input type="number" class="inputVerdeEscuro form-control bg-primary text-white " disabled value={dia} />
                         </div>
                         <div class="col-12">
                             <span>Horas Trabalhadas</span>
-                            <input type="number" class="inputVerde form-control" value={Htrabalhada}
+                            <input type="number" class="inputVerde form-control bg-primary text-white" value={Htrabalhada}
                                 onChange={event => { setHtrabalhada(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
                         <div class="col-12">
                             <span>T. Parada não Planejada</span>
-                            <input type="number" class="inputAzul form-control" disabled value={ParadaPlan}
-                            onChange={event => {setParadaPlan(event.target.value); }}
-                            />
+                            <input type="number" class="inputAzul form-control bg-primary text-white" disabled />
                         </div>
                         <div class="col-12">
                             <span>T. Parada Planejada</span>
-                            <input type="number" class="inputAzul form-control" value={ParadaPlan}
+                            <input type="number" class="inputAzul form-control bg-primary text-white" value={ParadaPlan}
                                 onChange={event => { setParadaPlan(event.target.value); }} />
                         </div>
                     </div>
@@ -115,23 +122,23 @@ function DivMaster() {
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Cavidades</span>
-                            <input type="number" class="inputVerde form-control" value={cavidades}
+                            <input type="number" class="inputVerde form-control bg-success  text-white" value={cavidades}
                                 onChange={event => { setCavidades(event.target.value); }} />
                         </div>
                         <div class="col-12">
                             <span>Tempo de Ciclo</span>
-                            <input type="number" class="inputVerde form-control" value={ciclo}
+                            <input type="number" class="inputVerde form-control bg-success  text-white" value={ciclo}
                                 onChange={event => { setCiclo(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Produção Teórica</span>
-                            <input type="number" class="inputVerdeEscuro form-control" disabled value={producaoTeorica.toFixed(2)} />
+                            <input type="number" class="inputVerdeEscuro form-control bg-success  text-white" disabled value={producaoTeorica.toFixed(2)} />
                         </div>
                         <div class="col-12">
                             <span>Produção Real</span>
-                            <input type="number" class="inputVerde form-control" value={prodReal}
+                            <input type="number" class="inputVerde form-control bg-success  text-white" value={prodReal}
                                 onChange={event => { setprodReal(event.target.value); }} />
                         </div>
                     </div>
@@ -141,14 +148,14 @@ function DivMaster() {
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Peso da Peça(g)</span>
-                            <input type="number" class="inputVerde form-control" value={peso}
+                            <input type="number" class="inputVerde form-control bg-warning   text-black" value={peso}
                                 onChange={event => { setPeso(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Rejeito(Kg)</span>
-                            <input type="number" class="inputVerde form-control" value={rejeito}
+                            <input type="number" class="inputVerde form-control bg-warning   text-black" value={rejeito}
                                 onChange={event => { setRejeito(event.target.value); }} />
                         </div>
                     </div>
@@ -169,28 +176,28 @@ function DivMaster() {
                     <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-12 col-md-2 text-center">
                             <span>Disponibilidade</span>
-                            <input type="text" class="Resultados form-control" id="disponibilidade" disabled value={Disponibilidade.toFixed(2)+"%"}/>
+                            <input type="text" class="Resultados form-control bg-dark text-white" id="disponibilidade" disabled value={Disponibilidade.toFixed(2)+"%"}/>
                         </div>
                         <div class="col-12 col-md-1 text-center">
                             <span class="simbolos">X</span>
                         </div>
                         <div class="col-12 col-md-2 text-center">
                             <span>Performance</span>
-                            <input type="text" class="Resultados form-control" id="performance" disabled value={Performance.toFixed(2)+"%"}/>
+                            <input type="text" class="Resultados form-control bg-dark text-white" id="performance" disabled value={Performance.toFixed(2)+"%"}/>
                         </div>
                         <div class="col-12 col-md-1 text-center ">
                             <span class="simbolos">X</span>
                         </div>
                         <div class="col-12 col-md-2 text-center">
                             <span>Qualidade</span>
-                            <input type="text" class="Resultados form-control" id="qualidade" disabled value={Qualidade.toFixed(2)+"%"}/>
+                            <input type="text" class="Resultados form-control bg-dark text-white" id="qualidade" disabled value={Qualidade.toFixed(2)+"%"}/>
                         </div>
                         <div class="col-12 col-md-1 text-center">
                             <span class="simbolos">=</span>
                         </div>
                         <div class="col-12 col-md-2 text-center">
                             <span>OEE</span>
-                            <input type="text" class="Resultados form-control" id="oee" disabled value={OEE.toFixed(2)+"%"}/>
+                            <input type="text" class="Resultados form-control bg-dark text-white" id="oee" disabled value={OEE.toFixed(2)+"%"}/>
                         </div>
                     </div>
                 </div>
