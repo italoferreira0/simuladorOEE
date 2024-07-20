@@ -21,6 +21,7 @@ function DivMaster() {
     const prodRealFloat = parseFloat(prodReal)
     const pesoFloat = parseFloat(peso)
     const rejeitoFloat = parseFloat(rejeito)
+    let ParadaNplan = dia - HtrabalhadaFloat -ParadaPlanFloat
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
         return ((3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat);
@@ -54,7 +55,7 @@ function DivMaster() {
     const Qualidade = fun_Qualidade(prodRealFloat, pesoFloat, rejeitoFloat)
     //__________________________________________________________________________________________________________
 
-    function fun_OEE(Performance, Qualidade, Disponibilidade) { //Função de Calculo de Qualidade
+    function fun_OEE(Performance, Qualidade, Disponibilidade) { //Função de Calculo de OEE
         return (Performance / 100 * Qualidade / 100 * Disponibilidade / 100) * 100
     }
     const OEE = fun_OEE(Performance, Qualidade, Disponibilidade)
@@ -97,22 +98,22 @@ function DivMaster() {
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Horas Planejadas</span>
-                            <input type="number" class=" form-control bg-primary text-white " disabled value={dia} />
+                            <input type="text" class=" form-control bg-dark text-white " disabled value={dia} />
                         </div>
                         <div class="col-12">
                             <span>Horas Trabalhadas</span>
-                            <input type="number" class=" form-control bg-primary text-white" value={Htrabalhada}
+                            <input type="text" class=" form-control bg-primary text-white" value={Htrabalhada}
                                 onChange={event => { setHtrabalhada(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
                         <div class="col-12">
-                            <span>T. Parada não Planejada</span>
-                            <input type="number" class=" form-control bg-primary text-white" disabled />
+                            <span>Tempo Parada não Planejada</span>
+                            <input type="text" class=" form-control bg-dark text-white" disabled value={ParadaNplan} />
                         </div>
                         <div class="col-12">
-                            <span>T. Parada Planejada</span>
-                            <input type="number" class="inputAzul form-control bg-primary text-white" value={ParadaPlan}
+                            <span>Tempo Parada Planejada</span>
+                            <input type="text" class="inputAzul form-control bg-primary text-white" value={ParadaPlan}
                                 onChange={event => { setParadaPlan(event.target.value); }} />
                         </div>
                     </div>
@@ -134,7 +135,7 @@ function DivMaster() {
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Produção Teórica</span>
-                            <input type="number" class=" form-control bg-success  text-white" disabled value={producaoTeorica.toFixed(2)} />
+                            <input type="number" class=" form-control bg-dark  text-white" disabled value={producaoTeorica.toFixed(2)} />
                         </div>
                         <div class="col-12">
                             <span>Produção Real</span>
