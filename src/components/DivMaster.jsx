@@ -8,6 +8,9 @@ function DivMaster() {
     const [ParadaPlan, setParadaPlan] = useState('')
     const [cavidades, setCavidades] = useState('')
     const [ciclo, setCiclo] = useState('')
+    const [prodReal,setprodReal] = useState('')
+    const [peso, setPeso] = useState('')
+    const [rejeito, setRejeito] = useState('')
 
     //Variaveis
     let dia = 24
@@ -15,6 +18,9 @@ function DivMaster() {
     const ParadaPlanFloat = parseFloat(ParadaPlan)
     const cavidadesFloat = parseFloat(cavidades)
     const cicloFloat = parseFloat(ciclo)
+    const prodRealFloat = parseFloat(prodReal)
+    const pesoFloat = parseFloat(peso)
+    const rejeitoFloat = parseFloat(rejeito)
 
     function ProdTeorica(HtrabalhadaFloat,cavidadesFloat,cicloFloat) {
         return (3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat;
@@ -27,6 +33,10 @@ function DivMaster() {
         console.log('Ciclo ',cicloFloat)
         const producaoTeorica = ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat);
         console.log('Produção terorica: ',producaoTeorica)
+        console.log('Produção Real: ', prodRealFloat)
+        console.log('Peso: ', pesoFloat)
+        console.log('Rejeito: ', rejeito)
+
     }
     
 
@@ -64,7 +74,8 @@ function DivMaster() {
                              onChange={event => {setCavidades(event.target.value);}}/>
 
                             <span>Produção Real</span>
-                            <input type="number" className="inputVerde"/>
+                            <input type="number" className="inputVerde" value={prodReal}
+                             onChange={event => {setprodReal(event.target.value);}}/>
 
                         </div>
                         
@@ -80,12 +91,14 @@ function DivMaster() {
 
                     <div class="col-12 col-md-4 d-flex justify-content-end Div3">
                         <div className="row">
-                            <span>Pesoa da Peça(g)</span>
-                            <input type="number" className='inputVerde'/>
+                            <span>Peso da Peça(g)</span>
+                            <input type="number" className='inputVerde' value={peso}
+                             onChange={event => {setPeso(event.target.value);}}/>
                         </div>
                         <div className="row">
                             <span>Rejeito(Kg)</span>
-                            <input type="number" className='inputVerde'/>
+                            <input type="number" className='inputVerde' value={rejeito}
+                             onChange={event => {setRejeito(event.target.value);}}/>
                         </div>
                     </div>
                     
