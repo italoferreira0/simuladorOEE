@@ -1,105 +1,17 @@
-.Div1{
-    /* border: 1px solid ;  */
-    padding: 10px;
-    text-align: center;
-    /* background-color: red; */
-  }
-
-  .Div2{
-    /* border: 1px solid ;  */
-    padding: 10px;
-    text-align: center;
-    /* background-color: red; */
-  }
-
-  .Div3{
-    /* border: 1px solid ;  */
-    padding: 10px;
-    text-align: center;
-    /* background-color: red; */
-  }
-
-
-
-.inputVerde{
-    font-weight: bolder;
-    color: rgb(62, 114, 182);
-    height: 35px;
-    border: 0;
-    margin: auto;
-    align-items: center;
-    text-align: center;
-    background-color: #19ca1994;
-    /* width: 50px; */
-    border-radius: 8px;
+.Resultados {
+  width: 80px;
+  text-align: center;
 }
-
-.inputVerdeEscuro{
-    font-weight: bolder;
-    color: rgb(30, 32, 34);
-    height: 35px;
-    border: 0;
-    margin: auto;
-    align-items: center;
-    text-align: center;
-    background-color: #157215d7;
-    /* width: 50px; */
-    border-radius: 8px;
+.simbolos {
+  font-size: 1.5em;
+  margin: 0 10px;
 }
-
-.inputAzul{
-        font-weight: bolder;
-        color: rgb(30, 32, 34);
-        height: 35px;
-        border: 0;
-        margin: auto;
-        align-items: center;
-        text-align: center;
-        background-color: rgb(62, 114, 182);
-        width: 150px;
-        border-radius: 8px;
+.Div1, .Div2, .Div3 {
+  margin-bottom: 15px;
 }
-
-.row{
-    
-    /* padding-top: 20px; */
-    padding-left: 25px;
-    padding-right: 25px;
+.vh-10 {
+  min-height: 10vh;
 }
-
-.DivBotoes{
-    margin-top: 10px;
-    align-items: center;
-    /* border: 1px solid ;  */
-    padding: 10px;
-    text-align: center;
-     /* background-color: red; */
-   }
-
-.btn-custom{
-    margin: 5px;
-}
-
-.simbolos{
-    padding-top: 20px;
-    font-size: 30px;
-    /* color: azure; */
-}
-
-.Resultados{
-    color: #fff; /* Exemplo de cor de texto branco */
-    border: none; 
-    padding: 5px;
-    margin: 0 10px; /* Espaçamento entre os inputs */
-    text-align: center;
-    font-weight: bolder;
-    color: rgb(30, 32, 34);
-    height: 60px;
-    /* font-size: ; */
-    
-    align-items: center;
-    text-align: center;
-    background-color: #157215d7;
-    /* width: 50px; */
-    border-radius: 8px;
+.inputVerde, .inputAzul, .inputVerdeEscuro {
+  margin-bottom: 10px;
 }
