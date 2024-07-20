@@ -38,7 +38,7 @@ function DivMaster() {
 
     //__________________________________________________________________________________________________________
     function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia) {//Função de Calculo de Disponibilidade
-        if (HtrabalhadaFloat == 0|| ParadaPlanFloat == 0) {
+        if (HtrabalhadaFloat == 0) {
             return 0
         }else{return (HtrabalhadaFloat / (dia - ParadaPlanFloat)) * 100}
     }
