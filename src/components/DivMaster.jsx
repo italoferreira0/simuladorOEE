@@ -1,9 +1,12 @@
 import { Alert, Button } from 'bootstrap'
 import '../style/DivMaster.css'
 import { useState } from 'react'
+import Graficos from './Graficos'
+import React, { useEffect, useRef } from 'react';
+import ApexCharts from 'apexcharts';
 
 
-function DivMaster() {
+function DivMaster({ children }) {
     const [Htrabalhada, setHtrabalhada] = useState(0)//Conectando input com variavel.
     const [ParadaPlan, setParadaPlan] = useState(0)
     const [cavidades, setCavidades] = useState(0)
@@ -72,25 +75,8 @@ function DivMaster() {
         setprodReal(0)
 
     }
-
-
-    function Calcular() {
-        console.log('Hora Trabalhada', HtrabalhadaFloat)
-        console.log('Parada Planejada', ParadaPlanFloat)
-        console.log('Cavidades ', cavidadesFloat)
-        console.log('Ciclo ', cicloFloat)
-        const producaoTeorica = ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat);
-        const Disponibilidade = fun_Disponibilidade(dia, HtrabalhadaFloat, HtrabalhadaFloat)
-        console.log('Produção terorica: ', producaoTeorica)
-        console.log('Produção Real: ', prodRealFloat)
-        console.log('Peso: ', pesoFloat)
-        console.log('Rejeito: ', rejeito)
-        console.log('Disponibilidade%: ', Disponibilidade)
-
-
-    }
-
-
+    
+    
     return (
         
         <div class="container  ">
@@ -203,11 +189,15 @@ function DivMaster() {
                         </div>
                     </div>
                 </div>
+
+                
+
             </div>
+
+            {React.Children.map(children,child => 
+                React.cloneElement(child, {Disponibilidade, Performance, Qualidade, OEE})
+            )}
         </div>
-
-
-
 
     )
 }
