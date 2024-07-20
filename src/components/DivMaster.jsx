@@ -38,7 +38,7 @@ function DivMaster() {
 
     //__________________________________________________________________________________________________________
     function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia) {//Função de Calculo de Disponibilidade
-        if (HtrabalhadaFloat == 0) {
+        if (HtrabalhadaFloat == 0|| ParadaPlanFloat == 0) {
             return 0
         }else{return (HtrabalhadaFloat / (dia - ParadaPlanFloat)) * 100}
     }
@@ -97,22 +97,22 @@ function DivMaster() {
             <div class="row">
                 <div class="col-12 col-md-4 d-flex flex-column align-items-start ">
                     <div class="row w-100">
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Horas Planejadas</span>
                             <input type="number" class=" form-control bg-dark text-white " disabled value={dia} />
                         </div>
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Horas Trabalhadas</span>
                             <input type="number" class=" form-control bg-primary text-white" value={Htrabalhada}
                                 onChange={event => { setHtrabalhada(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Tempo Parada não Planejada</span>
                             <input type="number" class=" form-control bg-dark text-white" disabled value={ParadaNplan} />
                         </div>
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Tempo Parada Planejada</span>
                             <input type="number" class="inputAzul form-control bg-primary text-white" value={ParadaPlan}
                                 onChange={event => { setParadaPlan(event.target.value); }} />
@@ -122,23 +122,23 @@ function DivMaster() {
 
                 <div class="col-12 col-md-4 d-flex flex-column align-items-center ">
                     <div class="row w-100">
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Cavidades</span>
-                            <input type="number" class=" form-control bg-success  text-white" value={cavidades}
+                            <input type="number" class=" form-control bg-success  text-white " value={cavidades}
                                 onChange={event => { setCavidades(event.target.value); }} />
                         </div>
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Tempo de Ciclo</span>
                             <input type="number" class=" form-control bg-success  text-white" value={ciclo}
                                 onChange={event => { setCiclo(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Produção Teórica</span>
-                            <input type="number" class=" form-control bg-dark  text-white" disabled value={producaoTeorica.toFixed(2)} />
+                            <input type="number" class=" form-control bg-dark  text-white" disabled value={producaoTeorica.toFixed(0)} />
                         </div>
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Produção Real</span>
                             <input type="number" class=" form-control bg-success  text-white" value={prodReal}
                                 onChange={event => { setprodReal(event.target.value); }} />
@@ -148,14 +148,14 @@ function DivMaster() {
 
                 <div class="col-12 col-md-4 d-flex flex-column align-items-end ">
                     <div class="row w-100">
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Peso da Peça(g)</span>
                             <input type="number" class=" form-control bg-warning   text-black" value={peso}
                                 onChange={event => { setPeso(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
-                        <div class="col-12">
+                        <div class="col-8">
                             <span>Rejeito(Kg)</span>
                             <input type="number" class="inputVerde form-control bg-warning   text-black" value={rejeito}
                                 onChange={event => { setRejeito(event.target.value); }} />
