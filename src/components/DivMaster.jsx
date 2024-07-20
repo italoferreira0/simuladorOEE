@@ -93,22 +93,22 @@ function DivMaster() {
         
         <div class="container  ">
             <div class="row">
-                <div class="col-12 col-md-4 d-flex flex-column align-items-start Div1">
+                <div class="col-12 col-md-4 d-flex flex-column align-items-start ">
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Horas Planejadas</span>
-                            <input type="number" class="inputVerdeEscuro form-control bg-primary text-white " disabled value={dia} />
+                            <input type="number" class=" form-control bg-primary text-white " disabled value={dia} />
                         </div>
                         <div class="col-12">
                             <span>Horas Trabalhadas</span>
-                            <input type="number" class="inputVerde form-control bg-primary text-white" value={Htrabalhada}
+                            <input type="number" class=" form-control bg-primary text-white" value={Htrabalhada}
                                 onChange={event => { setHtrabalhada(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
                         <div class="col-12">
                             <span>T. Parada não Planejada</span>
-                            <input type="number" class="inputAzul form-control bg-primary text-white" disabled />
+                            <input type="number" class=" form-control bg-primary text-white" disabled />
                         </div>
                         <div class="col-12">
                             <span>T. Parada Planejada</span>
@@ -118,37 +118,37 @@ function DivMaster() {
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 d-flex flex-column align-items-center Div2">
+                <div class="col-12 col-md-4 d-flex flex-column align-items-center ">
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Cavidades</span>
-                            <input type="number" class="inputVerde form-control bg-success  text-white" value={cavidades}
+                            <input type="number" class=" form-control bg-success  text-white" value={cavidades}
                                 onChange={event => { setCavidades(event.target.value); }} />
                         </div>
                         <div class="col-12">
                             <span>Tempo de Ciclo</span>
-                            <input type="number" class="inputVerde form-control bg-success  text-white" value={ciclo}
+                            <input type="number" class=" form-control bg-success  text-white" value={ciclo}
                                 onChange={event => { setCiclo(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Produção Teórica</span>
-                            <input type="number" class="inputVerdeEscuro form-control bg-success  text-white" disabled value={producaoTeorica.toFixed(2)} />
+                            <input type="number" class=" form-control bg-success  text-white" disabled value={producaoTeorica.toFixed(2)} />
                         </div>
                         <div class="col-12">
                             <span>Produção Real</span>
-                            <input type="number" class="inputVerde form-control bg-success  text-white" value={prodReal}
+                            <input type="number" class=" form-control bg-success  text-white" value={prodReal}
                                 onChange={event => { setprodReal(event.target.value); }} />
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 d-flex flex-column align-items-end Div3">
+                <div class="col-12 col-md-4 d-flex flex-column align-items-end ">
                     <div class="row w-100">
                         <div class="col-12">
                             <span>Peso da Peça(g)</span>
-                            <input type="number" class="inputVerde form-control bg-warning   text-black" value={peso}
+                            <input type="number" class=" form-control bg-warning   text-black" value={peso}
                                 onChange={event => { setPeso(event.target.value); }} />
                         </div>
                     </div>
