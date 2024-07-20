@@ -22,10 +22,33 @@ function DivMaster() {
     const pesoFloat = parseFloat(peso)
     const rejeitoFloat = parseFloat(rejeito)
 
-    function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {
-        return (3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat;
+    function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
+        return ((3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat);
     }
     const producaoTeorica = ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat);
+    
+    //__________________________________________________________________________________________________________
+    function fun_Performance(prodRealFloat,producaoTeorica) {//Função de Calculo de Performance
+        return (prodRealFloat/producaoTeorica)*100
+    }
+    const Performance = fun_Performance(prodRealFloat,producaoTeorica)
+    
+    //__________________________________________________________________________________________________________
+    function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia) {//Função de Calculo de Disponibilidade
+        return (HtrabalhadaFloat / (dia - ParadaPlanFloat)) * 100;
+    }
+    const Disponibilidade = fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia);
+    //__________________________________________________________________________________________________________
+    function fun_Qualidade(prodRealFloat,pesoFloat,rejeitoFloat) { //Função de Calculo de Qualidade
+        return (prodRealFloat/(prodRealFloat+(rejeitoFloat*1000/pesoFloat)))*100
+    }
+    const Qualidade = fun_Qualidade(prodRealFloat,pesoFloat,rejeitoFloat)
+    //__________________________________________________________________________________________________________
+    
+    function fun_OEE(Performance,Qualidade,Disponibilidade) { //Função de Calculo de Qualidade
+        return (Performance/100 * Qualidade/100 * Disponibilidade/100) * 100
+    }
+    const OEE = fun_OEE(Performance,Qualidade,Disponibilidade) 
 
 
     function Limpar() {
@@ -39,16 +62,20 @@ function DivMaster() {
 
     }
 
+
     function Calcular() {
         console.log('Hora Trabalhada', HtrabalhadaFloat)
         console.log('Parada Planejada', ParadaPlanFloat)
         console.log('Cavidades ', cavidadesFloat)
         console.log('Ciclo ', cicloFloat)
         const producaoTeorica = ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat);
+        const Disponibilidade = fun_Disponibilidade(dia,HtrabalhadaFloat,HtrabalhadaFloat)
         console.log('Produção terorica: ', producaoTeorica)
         console.log('Produção Real: ', prodRealFloat)
         console.log('Peso: ', pesoFloat)
         console.log('Rejeito: ', rejeito)
+        console.log('Disponibilidade%: ', Disponibilidade)
+
 
     }
 
@@ -98,7 +125,7 @@ function DivMaster() {
                                 onChange={event => { setCiclo(event.target.value); }} />
 
                             <span>Produção Teórica</span>
-                            <input type="number" className='inputVerdeEscuro' disabled value={producaoTeorica} />
+                            <input type="number" className='inputVerdeEscuro' disabled value={producaoTeorica.toFixed(2)} />
                         </div>
                     </div>
 
@@ -132,22 +159,22 @@ function DivMaster() {
                         <div class="d-flex align-items-center">
                             <div class="text-center">
                                 <span>Disponibilidade</span>
-                                <input type="number" class="Resultados" disabled />
+                                <input type="text" class="Resultados" disabled value={Disponibilidade.toFixed(2)+"%"} />
                             </div>
                             <span class="simbolos">X</span>
                             <div class="text-center">
                                 <span>Performance</span>
-                                <input type="number" class="Resultados" disabled />
+                                <input type="text" class="Resultados" disabled value={Performance.toFixed(2)+"%"}/>
                             </div>
                             <span class="simbolos">X</span>
                             <div class="text-center">
                                 <span>Qualidade</span>
-                                <input type="number" class="Resultados" disabled />
+                                <input type="text" class="Resultados" disabled value={Qualidade.toFixed(2)+"%"}/>
                             </div>
                             <span class="simbolos">=</span>
                             <div class="text-center">
                                 <span>OEE</span>
-                                <input type="number" class="Resultados" disabled />
+                                <input type="text" class="Resultados" disabled value={OEE.toFixed(2)+"%"} />
                             </div>
                         </div>
                     </div>
