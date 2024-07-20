@@ -26,6 +26,17 @@ function DivMaster() {
         return (3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat;
     }
 
+    function Limpar() {
+        setCavidades('')
+        setCiclo('')
+        setHtrabalhada('')
+        setParadaPlan('')
+        setPeso('')
+        setRejeito('')
+        setprodReal('')
+    
+    }
+
     function Calcular() {
         console.log('Hora Trabalhada',HtrabalhadaFloat)
         console.log('Parada Planejada',ParadaPlanFloat)
@@ -107,7 +118,7 @@ function DivMaster() {
                         <div class="row w-100">
                             <div class="col-12 text-center">
                             <button type="button" class="btn btn-dark btn-custom" onClick={Calcular}>Calcular</button>
-                            <button type="button" class="btn btn-dark btn-custom">Limpar</button>
+                            <button type="button" class="btn btn-dark btn-custom" onClick={Limpar}>Limpar</button>
                         </div>
                         </div>
                         </div>
