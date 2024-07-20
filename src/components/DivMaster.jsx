@@ -25,6 +25,8 @@ function DivMaster() {
     function ProdTeorica(HtrabalhadaFloat,cavidadesFloat,cicloFloat) {
         return (3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat;
     }
+    const producaoTeorica = ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat);
+
 
     function Limpar() {
         setCavidades('')
@@ -69,7 +71,7 @@ function DivMaster() {
                         
                         <div className="row">
                             <span>T. Parada não Planejada</span>
-                            <input type="number" className='inputAzul' disabled  />
+                            <input type="number" className='inputAzul' disabled />
 
                             <span>T. Parada Planejada</span>
                             <input type="number" className='inputAzul' value={ParadaPlan}
@@ -96,7 +98,7 @@ function DivMaster() {
                              onChange={event => {setCiclo(event.target.value);}}/>
 
                             <span>Produção Teórica</span>
-                            <input type="number" className='inputVerdeEscuro' disabled/>
+                            <input type="number" className='inputVerdeEscuro' disabled value={producaoTeorica}/>
                         </div>
                     </div>
 
@@ -115,11 +117,11 @@ function DivMaster() {
                     
                     <div class="container d-flex justify-content-center align-items-center vh-10 ">
                         <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center DivBotoes">
-                        <div class="row w-100">
-                            <div class="col-12 text-center">
-                            <button type="button" class="btn btn-dark btn-custom" onClick={Calcular}>Calcular</button>
-                            <button type="button" class="btn btn-dark btn-custom" onClick={Limpar}>Limpar</button>
-                        </div>
+                            <div class="row w-100">
+                                <div class="col-12 text-center">
+                                <button type="button" class="btn btn-dark btn-custom" onClick={Calcular}>Calcular</button>
+                                <button type="button" class="btn btn-dark btn-custom" onClick={Limpar}>Limpar</button>
+                            </div>
                         </div>
                         </div>
                     </div>
