@@ -5,7 +5,7 @@ function GrafOEETotal({ Disponibilidade, Performance, Qualidade, OEE }) {
     const chartRef = useRef(null);
 
     useEffect(() => {
-        const options1 = {
+        const OEETotal = {
             chart: {
                 height: 280,
                 type: "radialBar",
@@ -30,7 +30,7 @@ function GrafOEETotal({ Disponibilidade, Performance, Qualidade, OEE }) {
             labels: ['Disponibilidade', 'Performance','Qualidade' , 'OEE']
         };
 
-        const chart = new ApexCharts(chartRef.current, options1);
+        const chart = new ApexCharts(chartRef.current, OEETotal);
         chart.render();
 
         return () => {
