@@ -31,6 +31,7 @@ function DivMaster({ children }) {
     let ParadaNplan = dia - (HtrabalhadaFloat + ParadaPlanFloat)
     let ProdEsperada = (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))
     let pecasReprovadas = ProdEsperada - prodRealFloat
+    let tempoPlan = dia - ParadaPlan
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
         return ((3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat);
@@ -102,7 +103,7 @@ function DivMaster({ children }) {
                     <div class="row w-100 mb-3">
                         <div class="col-12">
                             <span>Horas Planejadas</span>
-                            <input type="number" class="form-control bg-dark text-white" disabled value={dia} />
+                            <input type="number" class="form-control bg-dark text-white" disabled value={tempoPlan} />
                         </div>
                         <div class="col-12 mt-2">
                             <span>Horas Trabalhadas</span>
