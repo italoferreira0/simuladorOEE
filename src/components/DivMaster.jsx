@@ -7,6 +7,7 @@ import ApexCharts from 'apexcharts';
 import GrafOEETotal from './GrafOEETotal';
 import GrafParadas from './GrafParadas';
 import GrafProducao from './GrafProducao';
+import GraficoBarras from './GraficoBarras';
 
 
 function DivMaster({ children }) {

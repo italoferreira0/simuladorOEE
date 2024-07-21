@@ -7,6 +7,7 @@ import BarChart from './components/BarChart'
 import GrafOEETotal from './components/GrafOEETotal'
 import GrafParadas from './components/GrafParadas'
 import GrafProducao from './components/GrafProducao'
+import GraficoBarras from './components/GraficoBarras'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,8 +17,10 @@ function App() {
       <Navbar />
       <DivMaster>
         <BarChart />
-        <GrafParadas />
-        <GrafProducao />
+        
+        <GraficoBarras/>
+        {/* <GrafParadas /> */}
+        {/* <GrafProducao /> */}
         <GrafOEETotal />
       </DivMaster>
     </div>

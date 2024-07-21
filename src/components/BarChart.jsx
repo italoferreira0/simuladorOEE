@@ -144,6 +144,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
           </div>
         </div>
       </div>
+      <br /><br />
     </div>
   );
 };

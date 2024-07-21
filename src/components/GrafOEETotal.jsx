@@ -40,7 +40,7 @@ function GrafOEETotal({ Disponibilidade, Performance, Qualidade, OEE }) {
     }, [Disponibilidade, Performance, Qualidade, OEE]);
 
     return (
-        <div ref={chartRef} className='GrafOEETotal col-md-5 mx-auto'></div>
+        <div ref={chartRef} className='GrafOEETotal col-md-5 mx-auto mt-0'></div>
     );
 }
 
