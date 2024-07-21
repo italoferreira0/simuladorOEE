@@ -3,7 +3,7 @@ import './App.css'
 
 import Navbar from "./components/Narbar"
 import DivMaster from './components/DivMaster'
-import Graficos from './components/Graficos'
+import BarChart from './components/BarChart'
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <div>
       <Navbar/>
       <DivMaster>
-        <Graficos/>
+        <BarChart/>
       </DivMaster>
     </div>
 

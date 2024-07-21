@@ -7,7 +7,7 @@ function Navbar() {
                 <div class="container-fluid justify-content-center">
                     <div class="navbar-nav">
                         <a class="nav-link text-dark " href="#">Simulador-OEE</a>
-                        <a class="nav-link text-dark" href="#">Calculos-OEE</a>
+                        {/* <a class="nav-link text-dark" href="#">Calculos-OEE</a> */}
                     </div>
                 </div>
             </nav>

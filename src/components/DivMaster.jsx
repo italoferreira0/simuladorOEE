@@ -1,8 +1,8 @@
 import { Alert, Button } from 'bootstrap'
 import '../style/DivMaster.css'
 import { useState } from 'react'
-import Graficos from './Graficos'
-import React, { useEffect, useRef } from 'react';
+import BarChart from './BarChart'
+import React, { useEffect } from 'react';
 import ApexCharts from 'apexcharts';
 
 
@@ -24,7 +24,7 @@ function DivMaster({ children }) {
     const prodRealFloat = parseFloat(prodReal)
     const pesoFloat = parseFloat(peso)
     const rejeitoFloat = parseFloat(rejeito)
-    let ParadaNplan = dia - HtrabalhadaFloat -ParadaPlanFloat
+    let ParadaNplan = dia - (HtrabalhadaFloat + ParadaPlanFloat)
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
         return ((3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat);
@@ -41,19 +41,27 @@ function DivMaster({ children }) {
     
 
     //__________________________________________________________________________________________________________
-    function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia) {//Função de Calculo de Disponibilidade
-        if (HtrabalhadaFloat == 0|| ParadaPlanFloat == 0) {
+    function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia, ParadaNplan) {//Função de Calculo de Disponibilidade
+        if (HtrabalhadaFloat == 0) {
             return 0
-        }else{return (HtrabalhadaFloat / (dia - ParadaPlanFloat)) * 100}
+        }else if (ParadaPlan == 0) {
+            return HtrabalhadaFloat/dia * 100
+        }else{
+            return HtrabalhadaFloat/(dia-ParadaPlanFloat) * 100
+        }
     }
     const Disponibilidade = fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia);
 
     //__________________________________________________________________________________________________________
     function fun_Qualidade(prodRealFloat, pesoFloat, rejeitoFloat) { //Função de Calculo de Qualidade
-        if (prodRealFloat == 0 || pesoFloat == 0||rejeitoFloat == 0) {
+        if (prodRealFloat == 0) {
             return 0
-        }else{
+        }else if(prodRealFloat > 0 && rejeitoFloat == 0){
+            return prodRealFloat/prodRealFloat * 100
+        }else if (prodRealFloat > 0 && rejeitoFloat > 0) {
             return (prodRealFloat / (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))) * 100
+        }else{
+            return 0
         }
         
     }
