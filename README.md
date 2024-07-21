@@ -4,6 +4,8 @@
 
  HTML, CSS, REACT, BootStrap, JavaScript, Apexchart 
 
+ Link: https://simulador-oee.vercel.app/
+
 ![image](https://github.com/user-attachments/assets/c7a49fc7-b732-41c8-ad66-3ee53db3859c)
 
  <h1>O que é OEE? </h1>
