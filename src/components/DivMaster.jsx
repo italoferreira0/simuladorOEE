@@ -38,6 +38,7 @@ function DivMaster({ children }) {
         }else{return (prodRealFloat / producaoTeorica) * 100}
     }
     const Performance = fun_Performance(prodRealFloat, producaoTeorica)
+    
 
     //__________________________________________________________________________________________________________
     function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia) {//Função de Calculo de Disponibilidade
@@ -63,6 +64,7 @@ function DivMaster({ children }) {
         return (Performance / 100 * Qualidade / 100 * Disponibilidade / 100) * 100
     }
     const OEE = fun_OEE(Performance, Qualidade, Disponibilidade)
+    
     
 
     function Limpar(OEE,Qualidade,Performance,Disponibilidade) {
