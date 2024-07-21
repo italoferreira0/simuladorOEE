@@ -27,7 +27,7 @@ function DivMaster({ children }) {
     const rejeitoFloat = parseFloat(rejeito)
     let ParadaNplan = dia - (HtrabalhadaFloat + ParadaPlanFloat)
     let ProdEsperada = (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))
-    let pecasReprovadas = prodRealFloat - ProdEsperada
+    let pecasReprovadas = ProdEsperada - prodRealFloat
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
         return ((3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat);
