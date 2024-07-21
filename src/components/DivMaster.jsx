@@ -206,7 +206,7 @@ function DivMaster({ children }) {
             </div>
 
             {React.Children.map(children,child => 
-                React.cloneElement(child, {Disponibilidade, Performance, Qualidade, OEE})
+                React.cloneElement(child, {Disponibilidade, Performance, Qualidade, OEE,dia,HtrabalhadaFloat,ParadaPlanFloat,ParadaNplan})
             )}
         </div>
 

@@ -8,6 +8,56 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
   const oeeRef = useRef(null);
 
   useEffect(() => {
+
+    // Logica de Cores
+    // Disponibilidade
+    let disponibilidadeColor;
+    if (Disponibilidade >= 80) {
+      disponibilidadeColor = '#008000'
+    }else if (Disponibilidade < 80 && Disponibilidade >= 60) {
+      disponibilidadeColor = '#FFFF00'
+    }else if( Disponibilidade > 0 && Disponibilidade < 60){
+      disponibilidadeColor = '#FF0000'
+    }else{
+      disponibilidadeColor = '#000000'
+    }
+    // Performance
+    let performanceColor;
+    if (Performance >= 80) {
+      performanceColor = '#008000'
+    }else if (Performance < 80 && Performance >= 60) {
+      performanceColor = '#FFFF00'
+    }else if( Performance > 0 && Performance < 60){
+      performanceColor = '#FF0000'
+    }else{
+      performanceColor = '#000000'
+    }
+
+    // Qualidade
+    let qualidadeColor;
+    if (Qualidade >= 80) {
+      qualidadeColor = '#008000'
+    }else if (Qualidade < 80 && Qualidade >= 60) {
+      qualidadeColor = '#FFFF00'
+    }else if( Qualidade > 0 && Qualidade < 60){
+      qualidadeColor = '#FF0000'
+    }else{
+      qualidadeColor = '#000000'
+    }
+
+    // OEE
+    let oeeColor;
+    if (OEE >= 80) {
+      oeeColor = '#008000'
+    }else if (OEE < 80 && OEE >= 60) {
+      oeeColor = '#FFFF00'
+    }else if( OEE > 0 && OEE < 60){
+      oeeColor = '#FF0000'
+    }else{
+      oeeColor = '#000000'
+    }
+    //_________________________________________________________________________________________
+
     // Gráfico de Disponibilidade
     const grafDisponibilidade = {
       chart: {
@@ -16,7 +66,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
       },
       series: [parseFloat(Disponibilidade.toFixed(2))],
       labels: ['Disponibilidade'],
-      colors: ['#000000']
+      colors: [disponibilidadeColor]
     };
     const chartDisp = new ApexCharts(dispRef.current, grafDisponibilidade);
     chartDisp.render();
@@ -29,7 +79,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
       },
       series: [parseFloat(Performance.toFixed(2))],
       labels: ['Performance'],
-      colors: ['#000000']
+      colors: [performanceColor]
     };
     const chartPerf = new ApexCharts(perfRef.current, grafPerformance);
     chartPerf.render();
@@ -42,7 +92,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
       },
       series: [parseFloat(Qualidade.toFixed(2))],
       labels: ['Qualidade'],
-      colors: ['#000000']
+      colors: [qualidadeColor]
     };
     const chartQua = new ApexCharts(qualRef.current, grafQualidade);
     chartQua.render();
@@ -55,7 +105,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
       },
       series: [parseFloat(OEE.toFixed(2))],
       labels: ['OEE'],
-      colors: ['#000000'],
+      colors: [oeeColor],
     
     };
     const chartOEE = new ApexCharts(oeeRef.current, grafOEE);

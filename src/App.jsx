@@ -6,6 +6,8 @@ import DivMaster from './components/DivMaster'
 import BarChart from './components/BarChart'
 import GrafOEETotal from './components/GrafOEETotal'
 
+
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -15,6 +17,8 @@ function App() {
       <DivMaster>
         <BarChart/>
         <GrafOEETotal/>
+        
+        
       </DivMaster>
     </div>
 
