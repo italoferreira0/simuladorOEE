@@ -26,6 +26,7 @@ Cada um desses fatores é expresso como uma porcentagem, e o OEE é o produto de
 Para calcular o OEE (Overall Equipment Effectiveness), você precisa obter três dados principais:
 
 1. Calcule a Disponibilidade
+   
 Disponibilidade = Tempo Operacional Real / Tempo Planejado
  
 
@@ -47,6 +48,7 @@ Produção Ideal: Quantidade que o equipamento deveria ter produzido se estivess
 <br>
  <p>
 3. Calcule a Qualidade
+  
 Qualidade = Produtos Bons / Total de Produtos Produzidos
 ​
    
