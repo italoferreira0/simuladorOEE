@@ -4,6 +4,7 @@ import { useState } from 'react'
 import BarChart from './BarChart'
 import React, { useEffect } from 'react';
 import ApexCharts from 'apexcharts';
+import GrafOEETotal from './GrafOEETotal';
 
 
 function DivMaster({ children }) {
