@@ -38,19 +38,19 @@ function DivMaster({ children }) {
     function fun_Performance(prodRealFloat, producaoTeorica) {//Função de Calculo de Performance
         if (prodRealFloat == 0) {
             return 0
-        }else{return (prodRealFloat / producaoTeorica) * 100}
+        } else { return (prodRealFloat / producaoTeorica) * 100 }
     }
     const Performance = fun_Performance(prodRealFloat, producaoTeorica)
-    
+
 
     //__________________________________________________________________________________________________________
     function fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia, ParadaNplan) {//Função de Calculo de Disponibilidade
         if (HtrabalhadaFloat == 0) {
             return 0
-        }else if (ParadaPlan == 0) {
-            return HtrabalhadaFloat/dia * 100
-        }else{
-            return HtrabalhadaFloat/(dia-ParadaPlanFloat) * 100
+        } else if (ParadaPlan == 0) {
+            return HtrabalhadaFloat / dia * 100
+        } else {
+            return HtrabalhadaFloat / (dia - ParadaPlanFloat) * 100
         }
     }
     const Disponibilidade = fun_Disponibilidade(HtrabalhadaFloat, ParadaPlanFloat, dia);
@@ -59,14 +59,14 @@ function DivMaster({ children }) {
     function fun_Qualidade(prodRealFloat, pesoFloat, rejeitoFloat) { //Função de Calculo de Qualidade
         if (prodRealFloat == 0) {
             return 0
-        }else if(prodRealFloat > 0 && rejeitoFloat == 0){
-            return prodRealFloat/prodRealFloat * 100
-        }else if (prodRealFloat > 0 && rejeitoFloat > 0) {
+        } else if (prodRealFloat > 0 && rejeitoFloat == 0) {
+            return prodRealFloat / prodRealFloat * 100
+        } else if (prodRealFloat > 0 && rejeitoFloat > 0) {
             return (prodRealFloat / (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))) * 100
-        }else{
+        } else {
             return 0
         }
-        
+
     }
     const Qualidade = fun_Qualidade(prodRealFloat, pesoFloat, rejeitoFloat)
     //__________________________________________________________________________________________________________
@@ -75,10 +75,10 @@ function DivMaster({ children }) {
         return (Performance / 100 * Qualidade / 100 * Disponibilidade / 100) * 100
     }
     const OEE = fun_OEE(Performance, Qualidade, Disponibilidade)
-    
-    
 
-    function Limpar(OEE,Qualidade,Performance,Disponibilidade) {
+
+
+    function Limpar(OEE, Qualidade, Performance, Disponibilidade) {
         setCavidades(0)
         setCiclo(0)
         setHtrabalhada(0)
@@ -88,30 +88,31 @@ function DivMaster({ children }) {
         setprodReal(0)
 
     }
-    
-    
+
+
     return (
-        
+
         <div class="container  ">
             <div class="row">
-                <div class="col-12 col-md-4 d-flex flex-column align-items-start ">
-                    <div class="row w-100">
-                        <div class="col-8">
+               
+                <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0">
+                    <div class="row w-100 mb-3">
+                        <div class="col-12">
                             <span>Horas Planejadas</span>
-                            <input type="number" class=" form-control bg-dark text-white " disabled value={dia} />
+                            <input type="number" class="form-control bg-dark text-white" disabled value={dia} />
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 mt-2">
                             <span>Horas Trabalhadas</span>
-                            <input type="number" class=" form-control bg-primary text-white" value={Htrabalhada}
+                            <input type="number" class="form-control bg-primary text-white" value={Htrabalhada}
                                 onChange={event => { setHtrabalhada(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
-                        <div class="col-8">
+                        <div class="col-12 mb-3">
                             <span>Tempo Parada não Planejada</span>
-                            <input type="number" class=" form-control bg-dark text-white" disabled value={ParadaNplan} />
+                            <input type="number" class="form-control bg-dark text-white" disabled value={ParadaNplan} />
                         </div>
-                        <div class="col-8">
+                        <div class="col-12">
                             <span>Tempo Parada Planejada</span>
                             <input type="number" class="inputAzul form-control bg-primary text-white" value={ParadaPlan}
                                 onChange={event => { setParadaPlan(event.target.value); }} />
@@ -119,110 +120,101 @@ function DivMaster({ children }) {
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 d-flex flex-column align-items-center ">
-                    <div class="row w-100">
-                        <div class="col-8">
+                
+                <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0">
+                    <div class="row w-100 mb-3">
+                        <div class="col-12">
                             <span>Cavidades</span>
-                            <input type="number" class=" form-control bg-success  text-white " value={cavidades}
+                            <input type="number" class="form-control bg-success text-white" value={cavidades}
                                 onChange={event => { setCavidades(event.target.value); }} />
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 mt-2">
                             <span>Tempo de Ciclo</span>
-                            <input type="number" class=" form-control bg-success  text-white" value={ciclo}
+                            <input type="number" class="form-control bg-success text-white" value={ciclo}
                                 onChange={event => { setCiclo(event.target.value); }} />
                         </div>
                     </div>
                     <div class="row w-100">
-                        <div class="col-8">
+                        <div class="col-12 mb-3">
                             <span>Produção Teórica</span>
-                            <input type="number" class=" form-control bg-dark  text-white" disabled value={producaoTeorica.toFixed(0)} />
+                            <input type="number" class="form-control bg-dark text-white" disabled value={producaoTeorica.toFixed(0)} />
                         </div>
-                        <div class="col-8">
+                        <div class="col-12">
                             <span>Produção Real</span>
-                            <input type="number" class=" form-control bg-success  text-white" value={prodReal}
+                            <input type="number" class="form-control bg-success text-white" value={prodReal}
                                 onChange={event => { setprodReal(event.target.value); }} />
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 d-flex flex-column align-items-end ">
-                    <div class="row w-100">
-                        <div class="col-8">
+              
+                <div class="col-12 col-md-4 d-flex flex-column align-items-center">
+                    <div class="row w-100 mb-3">
+                        <div class="col-12">
                             <span>Peso da Peça(g)</span>
-                            <input type="number" class=" form-control bg-warning   text-black" value={peso}
+                            <input type="number" class="form-control bg-warning text-black" value={peso}
                                 onChange={event => { setPeso(event.target.value); }} />
                         </div>
                     </div>
-                    <div class="row w-100">
-                        <div class="col-8">
+                    <div class="row w-100 mb-3">
+                        <div class="col-12">
                             <span>Rejeito(Kg)</span>
-                            <input type="number" class=" form-control bg-warning   text-black" value={rejeito}
+                            <input type="number" class="form-control bg-warning text-black" value={rejeito}
                                 onChange={event => { setRejeito(event.target.value); }} />
                         </div>
                     </div>
-                    <div class="row w-100">
-                        <div class="col-8">
+                    <div class="row w-100 mb-3">
+                        <div class="col-12">
                             <span>Produção Esperada</span>
-                            <input type="number" class=" form-control bg-dark  text-white" value={ProdEsperada.toFixed(0)} disabled
-                                onChange={event => { setRejeito(event.target.value); }} />
+                            <input type="number" class="form-control bg-dark text-white" value={ProdEsperada.toFixed(0)} disabled />
                         </div>
                     </div>
                     <div class="row w-100">
-                        <div class="col-8">
+                        <div class="col-12">
                             <span>Peças Reprovadas</span>
-                            <input type="number" class=" form-control bg-dark  text-white" value={pecasReprovadas.toFixed(0)} disabled
-                                onChange={event => { setRejeito(event.target.value); }} />
+                            <input type="number" class="form-control bg-dark text-white" value={pecasReprovadas.toFixed(0)} disabled />
                         </div>
                     </div>
                 </div>
-
-                <div class="container d-flex justify-content-center align-items-center vh-10">
-                    <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center DivBotoes">
-                        <div class="row w-100">
-                            <div class="col-12 text-center">
-                                {/* <button type="button" class="btn btn-dark btn-custom" onClick={Calcular}>Calcular</button> */}
-                                <button type="button" class="btn btn-dark btn-custom" onClick={Limpar}>Limpar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container d-flex justify-content-center align-items-center vh-10">
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <div class="col-12 col-md-2 text-center">
-                            <span>Disponibilidade</span>
-                            <input type="text" class="Resultados form-control bg-dark text-white" id="disponibilidade" disabled value={Disponibilidade.toFixed(2)+"%"}/>
-                        </div>
-                        <div class="col-12 col-md-1 text-center">
-                            <span class="simbolos">X</span>
-                        </div>
-                        <div class="col-12 col-md-2 text-center">
-                            <span>Performance</span>
-                            <input type="text" class="Resultados form-control bg-dark text-white" id="performance" disabled value={Performance.toFixed(2)+"%"}/>
-                        </div>
-                        <div class="col-12 col-md-1 text-center ">
-                            <span class="simbolos">X</span>
-                        </div>
-                        <div class="col-12 col-md-2 text-center">
-                            <span>Qualidade</span>
-                            <input type="text" class="Resultados form-control bg-dark text-white" id="qualidade" disabled value={Qualidade.toFixed(2)+"%"}/>
-                        </div>
-                        <div class="col-12 col-md-1 text-center">
-                            <span class="simbolos">=</span>
-                        </div>
-                        <div class="col-12 col-md-2 text-center">
-                            <span>OEE</span>
-                            <input type="text" class="Resultados form-control bg-dark text-white" id="oee" disabled value={OEE.toFixed(2)+"%"}/>
-                        </div>
-                    </div>
-                </div>
-
-                
-
             </div>
 
-            {React.Children.map(children,child => 
-                React.cloneElement(child, {Disponibilidade, Performance, Qualidade, OEE,dia,HtrabalhadaFloat,ParadaPlanFloat,ParadaNplan})
+         
+            <div class="row justify-content-center mb-4">
+                <div class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
+                    <button type="button" class="btn btn-dark" onClick={Limpar}>Limpar</button>
+                </div>
+            </div>
+
+          
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-2 text-center">
+                    <span>Disponibilidade</span>
+                    <input type="text" class="form-control bg-dark text-white" id="disponibilidade" disabled value={Disponibilidade.toFixed(2) + "%"} />
+                </div>
+                <div class="col-12 col-md-1 text-center">
+                    <span class="simbolos">X</span>
+                </div>
+                <div class="col-12 col-md-2 text-center">
+                    <span>Performance</span>
+                    <input type="text" class="form-control bg-dark text-white" id="performance" disabled value={Performance.toFixed(2) + "%"} />
+                </div>
+                <div class="col-12 col-md-1 text-center">
+                    <span class="simbolos">X</span>
+                </div>
+                <div class="col-12 col-md-2 text-center">
+                    <span>Qualidade</span>
+                    <input type="text" class="form-control bg-dark text-white" id="qualidade" disabled value={Qualidade.toFixed(2) + "%"} />
+                </div>
+                <div class="col-12 col-md-1 text-center">
+                    <span class="simbolos">=</span>
+                </div>
+                <div class="col-12 col-md-2 text-center">
+                    <span>OEE</span>
+                    <input type="text" class="form-control bg-dark text-white" id="oee" disabled value={OEE.toFixed(2) + "%"} />
+                </div>
+            </div>
+            {React.Children.map(children, child =>
+                React.cloneElement(child, { Disponibilidade, Performance, Qualidade, OEE, dia, HtrabalhadaFloat, ParadaPlanFloat, ParadaNplan })
             )}
         </div>
 
