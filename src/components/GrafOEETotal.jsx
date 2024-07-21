@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import ApexCharts from 'apexcharts';
+import '../style/GrafOEETotal.css'
 
 function GrafOEETotal({ Disponibilidade, Performance, Qualidade, OEE }) {
     const chartRef = useRef(null);
@@ -39,7 +40,7 @@ function GrafOEETotal({ Disponibilidade, Performance, Qualidade, OEE }) {
     }, [Disponibilidade, Performance, Qualidade, OEE]);
 
     return (
-        <div ref={chartRef}></div>
+        <div ref={chartRef} className='GrafOEETotal col-md-5 mx-auto'></div>
     );
 }
 

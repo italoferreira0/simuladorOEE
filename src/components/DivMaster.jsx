@@ -26,6 +26,8 @@ function DivMaster({ children }) {
     const pesoFloat = parseFloat(peso)
     const rejeitoFloat = parseFloat(rejeito)
     let ParadaNplan = dia - (HtrabalhadaFloat + ParadaPlanFloat)
+    let ProdEsperada = (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))
+    let pecasReprovadas = prodRealFloat - ProdEsperada
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
         return ((3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat);
@@ -154,7 +156,21 @@ function DivMaster({ children }) {
                     <div class="row w-100">
                         <div class="col-8">
                             <span>Rejeito(Kg)</span>
-                            <input type="number" class="inputVerde form-control bg-warning   text-black" value={rejeito}
+                            <input type="number" class=" form-control bg-warning   text-black" value={rejeito}
+                                onChange={event => { setRejeito(event.target.value); }} />
+                        </div>
+                    </div>
+                    <div class="row w-100">
+                        <div class="col-8">
+                            <span>Produção Esperada</span>
+                            <input type="number" class=" form-control bg-dark  text-white" value={ProdEsperada.toFixed(0)} disabled
+                                onChange={event => { setRejeito(event.target.value); }} />
+                        </div>
+                    </div>
+                    <div class="row w-100">
+                        <div class="col-8">
+                            <span>Peças Reprovadas</span>
+                            <input type="number" class=" form-control bg-dark  text-white" value={pecasReprovadas.toFixed(0)} disabled
                                 onChange={event => { setRejeito(event.target.value); }} />
                         </div>
                     </div>

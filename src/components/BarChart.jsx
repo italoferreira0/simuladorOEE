@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import ApexCharts from 'apexcharts';
+import '../style/BarChart.css'
 
 const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
   const dispRef = useRef(null);
@@ -123,22 +124,22 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     <div>
       <div className="row">
         <div className="col-md-3">
-          <div ref={dispRef} id="grafDisponibilidade" className="p-2">
+          <div ref={dispRef} id="grafDisponibilidade" className="p-2 divStyle">
             {/* Gráfico Disponibilidade */}
           </div>
         </div>
         <div className="col-md-3">
-          <div ref={perfRef} id="grafPerformance" className="p-2">
+          <div ref={perfRef} id="grafPerformance" className="p-2 divStyle">
             {/* Gráfico Performance */}
           </div>
         </div>
         <div className="col-md-3">
-          <div ref={qualRef} id="grafQualidade" className="p-2">
+          <div ref={qualRef} id="grafQualidade" className="p-2 divStyle">
             {/* Gráfico Qualidade */}
           </div>
         </div>
         <div className="col-md-3">
-          <div ref={oeeRef} id="grafOEE" className="p-2">
+          <div ref={oeeRef} id="grafOEE" className="p-2 divStyle">
             {/* Gráfico OEE */}
           </div>
         </div>
