@@ -5,6 +5,8 @@ import BarChart from './BarChart'
 import React, { useEffect } from 'react';
 import ApexCharts from 'apexcharts';
 import GrafOEETotal from './GrafOEETotal';
+import GrafParadas from './GrafParadas';
+import GrafProducao from './GrafProducao';
 
 
 function DivMaster({ children }) {
@@ -214,7 +216,10 @@ function DivMaster({ children }) {
                 </div>
             </div>
             {React.Children.map(children, child =>
-                React.cloneElement(child, { Disponibilidade, Performance, Qualidade, OEE, dia, HtrabalhadaFloat, ParadaPlanFloat, ParadaNplan })
+                React.cloneElement(child, { Disponibilidade, Performance, Qualidade, OEE, dia, 
+                    HtrabalhadaFloat, ParadaPlanFloat, ParadaNplan,HtrabalhadaFloat, 
+                    prodRealFloat,ProdEsperada,producaoTeorica,pecasReprovadas
+                })
             )}
         </div>
 
