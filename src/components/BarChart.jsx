@@ -14,7 +14,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     // Disponibilidade
     let disponibilidadeColor;
     if (Disponibilidade >= 80) {
-      disponibilidadeColor = '#008000'
+      disponibilidadeColor = '#0a5c0a'
     }else if (Disponibilidade < 80 && Disponibilidade >= 60) {
       disponibilidadeColor = '#FFFF00'
     }else if( Disponibilidade > 0 && Disponibilidade < 60){
@@ -25,11 +25,11 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     // Performance
     let performanceColor;
     if (Performance >= 80) {
-      performanceColor = '#008000'
+      performanceColor = '#0a5c0a'
     }else if (Performance < 80 && Performance >= 60) {
       performanceColor = '#FFFF00'
     }else if( Performance > 0 && Performance < 60){
-      performanceColor = '#FF0000'
+      performanceColor = '#b81414'
     }else{
       performanceColor = '#000000'
     }
@@ -37,7 +37,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     // Qualidade
     let qualidadeColor;
     if (Qualidade >= 80) {
-      qualidadeColor = '#008000'
+      qualidadeColor = '#0a5c0a'
     }else if (Qualidade < 80 && Qualidade >= 60) {
       qualidadeColor = '#FFFF00'
     }else if( Qualidade > 0 && Qualidade < 60){
@@ -49,7 +49,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     // OEE
     let oeeColor;
     if (OEE >= 80) {
-      oeeColor = '#008000'
+      oeeColor = '#0a5c0a'
     }else if (OEE < 80 && OEE >= 60) {
       oeeColor = '#FFFF00'
     }else if( OEE > 0 && OEE < 60){
@@ -121,9 +121,9 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
   }, [Disponibilidade, Performance, Qualidade, OEE]);
 
   return (
-    <div>
-      <div className="row BarChar">
-        <div className="col-md-3">
+    <div className='mt-5'>
+      <div className="row BarChar ">
+        <div className="col-md-3 ">
           <div ref={dispRef} id="grafDisponibilidade" className="p-2 divStyle ml-1">
             {/* Gráfico Disponibilidade */}
           </div>

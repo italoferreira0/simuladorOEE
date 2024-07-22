@@ -29,9 +29,9 @@ function DivMaster({ children }) {
     const pesoFloat = parseFloat(peso)
     const rejeitoFloat = parseFloat(rejeito)
     let ParadaNplan = HtrabalhadaFloat == 0 ? 0: dia - (HtrabalhadaFloat + ParadaPlanFloat)
-    let ProdEsperada = prodRealFloat === 0 ? 0 : (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat));
-    let pecasReprovadas = ProdEsperada - prodRealFloat
-    let tempoPlan = HtrabalhadaFloat === 0 ? 0 : dia - ParadaPlan
+    let ProdEsperada = rejeitoFloat == 0|| pesoFloat == 0 ? 0 : (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat));
+    let pecasReprovadas = rejeitoFloat == 0|| pesoFloat == 0 ? 0 :ProdEsperada - prodRealFloat
+    let tempoPlan = HtrabalhadaFloat == 0 ? 0 : dia - ParadaPlan
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
         if (Htrabalhada == 0||cavidadesFloat == 0|| cicloFloat == 0 ) {
@@ -99,7 +99,7 @@ function DivMaster({ children }) {
 
     return (
 
-        <div class="container  DivMaster">
+        <div class="container DivMaster pt-5 pb-3 mb-3">
             <div class="row">
                
                 <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0">
