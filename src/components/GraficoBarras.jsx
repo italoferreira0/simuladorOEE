@@ -1,7 +1,9 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
+import '../style/GrafBarras.css'
 
-function GraficoBarras({ prodRealFloat, ProdEsperada, producaoTeorica, pecasReprovadas, dia, HtrabalhadaFloat, ParadaPlanFloat, ParadaNplan }) {
+function GraficoBarras({ prodRealFloat, ProdEsperada, producaoTeorica, pecasReprovadas,
+    dia, HtrabalhadaFloat, ParadaPlanFloat, ParadaNplan, tempoPlan }) {
     // Configurações para o gráfico de produção
     const optionsProducao = {
         chart: {
@@ -9,8 +11,8 @@ function GraficoBarras({ prodRealFloat, ProdEsperada, producaoTeorica, pecasRepr
         },
         series: [{
             name: 'Produção',
-            data: [parseFloat(producaoTeorica).toFixed(0), parseFloat(prodRealFloat).toFixed(0), 
-                parseFloat(ProdEsperada).toFixed(0), parseFloat(pecasReprovadas).toFixed(0)]
+            data: [parseFloat(producaoTeorica).toFixed(0), parseFloat(prodRealFloat).toFixed(0),
+            parseFloat(ProdEsperada).toFixed(0), parseFloat(pecasReprovadas).toFixed(0)]
         }],
         xaxis: {
             categories: ['Produção Teórica', 'Produção Real', 'Produção Esperada', 'Peças Reprovadas']
@@ -19,14 +21,15 @@ function GraficoBarras({ prodRealFloat, ProdEsperada, producaoTeorica, pecasRepr
     };
 
     // Configurações para o gráfico de paradas
-    let tempoPlan = dia - ParadaPlanFloat;
+
     const optionsParadas = {
         chart: {
             type: 'bar'
         },
         series: [{
             name: 'Tempo',
-            data: [tempoPlan, HtrabalhadaFloat, ParadaPlanFloat, ParadaNplan]
+            data: [parseFloat(tempoPlan).toFixed(2), parseFloat(HtrabalhadaFloat).toFixed(2),
+            parseFloat(ParadaPlanFloat).toFixed(2), parseFloat(ParadaNplan).toFixed(2),]
         }],
         xaxis: {
             categories: ['Tempo Planejado', 'Tempo de Produção', 'Parada Planejada', 'Parada Não Planejada']
@@ -35,13 +38,12 @@ function GraficoBarras({ prodRealFloat, ProdEsperada, producaoTeorica, pecasRepr
     };
 
     return (
-        <div className="d-flex flex-wrap justify-content-between mt-4">
-            
-            <div className="col-md-6 d-flex mb-4">
-                <Chart options={optionsProducao} series={optionsProducao.series} type="bar" height={400} width={400} />
+        <div className="d-flex flex-wrap justify-content-center mt-4 GrafBarras">
+            <div className="col-md-6 d-flex justify-content-center mb-4 GrafIndividual">
+                <Chart options={optionsProducao} series={optionsProducao.series} type="bar" height={400} width={390} />
             </div>
-            <div className="col-md-6 d-flex mb-4">
-                <Chart options={optionsParadas} series={optionsParadas.series} type="bar" height={400} width={400} />
+            <div className="col-md-6 d-flex justify-content-center mb-4 GrafIndividual">
+                <Chart options={optionsParadas} series={optionsParadas.series} type="bar" height={400} width={390} />
             </div>
         </div>
     );

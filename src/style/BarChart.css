@@ -3,4 +3,12 @@
     background-color: rgba(15, 206, 31, 0.158);
     border-radius: 20px;
     box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.8);
+    margin-bottom: 30px;
   }
+
+.BarChar{
+  /* box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.8); */
+
+  border-radius: 20px;
+  background-color: rgba(100, 89, 89, 0.432);
+}

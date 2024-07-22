@@ -122,9 +122,9 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
 
   return (
     <div>
-      <div className="row">
+      <div className="row BarChar">
         <div className="col-md-3">
-          <div ref={dispRef} id="grafDisponibilidade" className="p-2 divStyle">
+          <div ref={dispRef} id="grafDisponibilidade" className="p-2 divStyle ml-1">
             {/* Gráfico Disponibilidade */}
           </div>
         </div>

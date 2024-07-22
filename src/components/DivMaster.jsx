@@ -20,7 +20,7 @@ function DivMaster({ children }) {
     const [rejeito, setRejeito] = useState(0)
 
     //Variaveis
-    let dia = 24
+    let dia = 24 
     const HtrabalhadaFloat = parseFloat(Htrabalhada)//Atribuindo tipo a variavel.
     const ParadaPlanFloat = parseFloat(ParadaPlan)
     const cavidadesFloat = parseFloat(cavidades)
@@ -28,10 +28,10 @@ function DivMaster({ children }) {
     const prodRealFloat = parseFloat(prodReal)
     const pesoFloat = parseFloat(peso)
     const rejeitoFloat = parseFloat(rejeito)
-    let ParadaNplan = dia - (HtrabalhadaFloat + ParadaPlanFloat)
+    let ParadaNplan = HtrabalhadaFloat == 0 ? 0: dia - (HtrabalhadaFloat + ParadaPlanFloat)
     let ProdEsperada = prodRealFloat === 0 ? 0 : (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat));
     let pecasReprovadas = ProdEsperada - prodRealFloat
-    let tempoPlan = dia - ParadaPlan
+    let tempoPlan = HtrabalhadaFloat === 0 ? 0 : dia - ParadaPlan
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
         if (Htrabalhada == 0||cavidadesFloat == 0|| cicloFloat == 0 ) {
@@ -99,7 +99,7 @@ function DivMaster({ children }) {
 
     return (
 
-        <div class="container  ">
+        <div class="container  DivMaster">
             <div class="row">
                
                 <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0">
@@ -223,7 +223,7 @@ function DivMaster({ children }) {
             {React.Children.map(children, child =>
                 React.cloneElement(child, { Disponibilidade, Performance, Qualidade, OEE, dia, 
                     HtrabalhadaFloat, ParadaPlanFloat, ParadaNplan,HtrabalhadaFloat, 
-                    prodRealFloat,ProdEsperada,producaoTeorica,pecasReprovadas
+                    prodRealFloat,ProdEsperada,producaoTeorica,pecasReprovadas,tempoPlan
                 })
             )}
         </div>
