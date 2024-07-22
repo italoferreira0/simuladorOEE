@@ -29,11 +29,14 @@ function DivMaster({ children }) {
     const pesoFloat = parseFloat(peso)
     const rejeitoFloat = parseFloat(rejeito)
     let ParadaNplan = dia - (HtrabalhadaFloat + ParadaPlanFloat)
-    let ProdEsperada = (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat))
+    let ProdEsperada = prodRealFloat === 0 ? 0 : (prodRealFloat + (rejeitoFloat * 1000 / pesoFloat));
     let pecasReprovadas = ProdEsperada - prodRealFloat
     let tempoPlan = dia - ParadaPlan
 
     function ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat) {//Função de Calculo de Produção Teórica
+        if (Htrabalhada == 0||cavidadesFloat == 0|| cicloFloat == 0 ) {
+            return(0)
+        }
         return ((3600 / cicloFloat) * cavidadesFloat * HtrabalhadaFloat);
     }
     const producaoTeorica = ProdTeorica(HtrabalhadaFloat, cavidadesFloat, cicloFloat);

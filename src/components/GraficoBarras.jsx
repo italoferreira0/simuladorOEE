@@ -38,10 +38,10 @@ function GraficoBarras({ prodRealFloat, ProdEsperada, producaoTeorica, pecasRepr
         <div className="d-flex flex-wrap justify-content-between mt-4">
             
             <div className="col-md-6 d-flex mb-4">
-                <Chart options={optionsProducao} series={optionsProducao.series} type="bar" height={400} width={450} />
+                <Chart options={optionsProducao} series={optionsProducao.series} type="bar" height={400} width={400} />
             </div>
             <div className="col-md-6 d-flex mb-4">
-                <Chart options={optionsParadas} series={optionsParadas.series} type="bar" height={400} width={450} />
+                <Chart options={optionsParadas} series={optionsParadas.series} type="bar" height={400} width={400} />
             </div>
         </div>
     );
