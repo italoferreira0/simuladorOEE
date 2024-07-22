@@ -7,6 +7,9 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
   const perfRef = useRef(null);
   const qualRef = useRef(null);
   const oeeRef = useRef(null);
+  
+  var textDisponibilidade = 'Disponibilidade';
+  var coloredText = `<span style="color: #b8b814">${textDisponibilidade}</span>`;
 
   useEffect(() => {
 
@@ -16,9 +19,9 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     if (Disponibilidade >= 80) {
       disponibilidadeColor = '#0a5c0a'
     }else if (Disponibilidade < 80 && Disponibilidade >= 60) {
-      disponibilidadeColor = '#FFFF00'
+      disponibilidadeColor = '#ffd700'
     }else if( Disponibilidade > 0 && Disponibilidade < 60){
-      disponibilidadeColor = '#FF0000'
+      disponibilidadeColor = '#e32636'
     }else{
       disponibilidadeColor = '#000000'
     }
@@ -27,9 +30,9 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     if (Performance >= 80) {
       performanceColor = '#0a5c0a'
     }else if (Performance < 80 && Performance >= 60) {
-      performanceColor = '#FFFF00'
+      performanceColor = '#ffd700'
     }else if( Performance > 0 && Performance < 60){
-      performanceColor = '#b81414'
+      performanceColor = '#e32636'
     }else{
       performanceColor = '#000000'
     }
@@ -39,9 +42,9 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     if (Qualidade >= 80) {
       qualidadeColor = '#0a5c0a'
     }else if (Qualidade < 80 && Qualidade >= 60) {
-      qualidadeColor = '#FFFF00'
+      qualidadeColor = '#ffd700'
     }else if( Qualidade > 0 && Qualidade < 60){
-      qualidadeColor = '#FF0000'
+      qualidadeColor = '#e32636'
     }else{
       qualidadeColor = '#000000'
     }
@@ -51,9 +54,9 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
     if (OEE >= 80) {
       oeeColor = '#0a5c0a'
     }else if (OEE < 80 && OEE >= 60) {
-      oeeColor = '#FFFF00'
+      oeeColor = '#ffd700'
     }else if( OEE > 0 && OEE < 60){
-      oeeColor = '#FF0000'
+      oeeColor = '#e32636'
     }else{
       oeeColor = '#000000'
     }
@@ -66,7 +69,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
         type: 'radialBar',
       },
       series: [parseFloat(Disponibilidade.toFixed(2))],
-      labels: ['Disponibilidade'],
+      labels: ['Disponibilidade %'],
       colors: [disponibilidadeColor]
     };
     const chartDisp = new ApexCharts(dispRef.current, grafDisponibilidade);
@@ -79,7 +82,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
         type: 'radialBar',
       },
       series: [parseFloat(Performance.toFixed(2))],
-      labels: ['Performance'],
+      labels: ['Performance %'],
       colors: [performanceColor]
     };
     const chartPerf = new ApexCharts(perfRef.current, grafPerformance);
@@ -92,7 +95,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
         type: 'radialBar',
       },
       series: [parseFloat(Qualidade.toFixed(2))],
-      labels: ['Qualidade'],
+      labels: ['Qualidade %'],
       colors: [qualidadeColor]
     };
     const chartQua = new ApexCharts(qualRef.current, grafQualidade);
@@ -105,7 +108,7 @@ const BarChart = ({ Disponibilidade, Performance, Qualidade, OEE }) => {
         type: 'radialBar',    
       },
       series: [parseFloat(OEE.toFixed(2))],
-      labels: ['OEE'],
+      labels: ['OEE %'],
       colors: [oeeColor],
     
     };
