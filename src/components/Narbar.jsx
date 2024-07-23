@@ -3,15 +3,11 @@ import '../style/Navbar.css'
 function Navbar() {
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-custom">
+            <nav class="Navbar mb-1 navbar navbar-expand-lg navbar-custom">
                 <div class="container-fluid justify-content-center">
-                    <div class="navbar-nav">
-                        <a class="nav-link text-dark " href="#">Simulador-OEE</a>
-                        {/* <a class="nav-link text-dark" href="#">Calculos-OEE</a> */}
-                    </div>
+                    <h1 id="titulo" className='mt-3'>Simulador de OEE</h1>
                 </div>
             </nav>
-            <br /><br />
         </div>
 
     )
